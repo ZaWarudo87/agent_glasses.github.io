@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特務眼鏡精靈</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="the-button">Try it</button>
+    <script>
+        const button = document.querySelector('#the-button');
+        button.addEventListener('click', function() {
+            navigator.bluetooth.requestDevice({
+                filters: [{
+                    services: ['battery_service']
+                }]
+            }).then(device => {
+                console.log('Got device:', device.name);
+                console.log('id:', device.id);
+            });
+        });
+    </script>
+</body>
+</html>
